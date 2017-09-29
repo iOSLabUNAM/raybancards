@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RayBanWayfarer-white-2" translatesAutoresizingMaskIntoConstraints="NO" id="Mch-rM-ia8">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white-closed" translatesAutoresizingMaskIntoConstraints="NO" id="Mch-rM-ia8">
                                 <rect key="frame" x="102" y="248" width="170" height="170"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Mch-rM-ia8" secondAttribute="height" multiplier="1:1" id="wbC-EC-GJW"/>
@@ -39,6 +39,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="RayBanWayfarer-white-2" width="170" height="170"/>
+        <image name="white-closed" width="170" height="170"/>
     </resources>
 </document>
