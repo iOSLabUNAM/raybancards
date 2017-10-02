@@ -22,10 +22,6 @@ class ImageDescriptionCard: UICollectionViewCell {
     
     let textView : UITextView = {
         let lbl = UITextView()
-        lbl.text = "title"
-        lbl.font = .systemFont(ofSize: 24, weight: .bold)
-        
-        lbl.textAlignment = .center
         lbl.isEditable = false
         lbl.isScrollEnabled = false
         lbl.backgroundColor = .clear
@@ -36,9 +32,11 @@ class ImageDescriptionCard: UICollectionViewCell {
         didSet { self.imageView.image = self.image }
     }
     var title : String? {
-        didSet { self.textView.text = self.title }
+        didSet { updateTextView() }
     }
-    var content : String?
+    var content : String? {
+        didSet { updateTextView() }
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -72,4 +70,10 @@ class ImageDescriptionCard: UICollectionViewCell {
         textView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 10).isActive = true
     }
 
+    func updateTextView() {
+        let attributedText = NSMutableAttributedString(string: (title ?? ""), attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 24)])
+        attributedText.append(NSAttributedString(string: "\n\n\n\(content ?? "")", attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 13)]))
+        textView.attributedText = attributedText
+        textView.textAlignment = .center
+    }
 }
