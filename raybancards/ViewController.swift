@@ -52,12 +52,11 @@ class ViewController: UIViewController {
 
     func setupSubviews() {
         view.addSubview(container)
-        container.snp.makeConstraints { make in
-            make.top.equalTo(view.snp.top)
-            make.left.equalTo(view.snp.left)
-            make.right.equalTo(view.snp.right)
-            make.bottom.equalTo(view.snp.bottom)
-        }
+        container.translatesAutoresizingMaskIntoConstraints = false
+        container.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        container.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        container.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+        container.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
         container.register(ImageDescriptionCard.self, forCellWithReuseIdentifier: cellId)
     }
 
@@ -74,7 +73,7 @@ extension ViewController : UICollectionViewDataSource, UICollectionViewDelegate,
         cell.title = item.name
         cell.content = item.description
         cell.image = item.image
-        cell.backgroundColor = UIColor(red:0.95, green:0.81, blue:0.33, alpha:1.00)
+        cell.backgroundColor = UIColor(named: "yellow")
         return cell
     }
     

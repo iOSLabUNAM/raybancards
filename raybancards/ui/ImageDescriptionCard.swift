@@ -7,9 +7,12 @@
 //
 
 import UIKit
-import SnapKit
 
 class ImageDescriptionCard: UICollectionViewCell {
+    let topContainer : UIView = {
+        let view = UIView()
+        return view
+    }()
     let imageView : UIImageView = {
         let iv = UIImageView()
         iv.image = UIImage.init(named: "white-closed")
@@ -17,19 +20,12 @@ class ImageDescriptionCard: UICollectionViewCell {
         return iv
     }()
     
-    let lblTitle : UILabel = {
-        let lbl = UILabel()
-        lbl.text = "title"
-        lbl.textAlignment = .center
-        lbl.font = .systemFont(ofSize: 24, weight: .bold)
-        return lbl
-    }()
-    
-    let lblContent : UITextView = {
+    let textView : UITextView = {
         let lbl = UITextView()
-        lbl.text = "lorem ipsum dolor quet"
+        lbl.text = "title"
+        lbl.font = .systemFont(ofSize: 24, weight: .bold)
+        
         lbl.textAlignment = .center
-        lbl.font = .systemFont(ofSize: 18)
         lbl.isEditable = false
         lbl.isScrollEnabled = false
         lbl.backgroundColor = .clear
@@ -40,11 +36,9 @@ class ImageDescriptionCard: UICollectionViewCell {
         didSet { self.imageView.image = self.image }
     }
     var title : String? {
-        didSet { self.lblTitle.text = self.title }
+        didSet { self.textView.text = self.title }
     }
-    var content : String? {
-        didSet { self.lblContent.text = self.content }
-    }
+    var content : String?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -57,28 +51,25 @@ class ImageDescriptionCard: UICollectionViewCell {
     }
     
     func setupSubviews() {
-        addSubview(self.imageView)
-        imageView.snp.makeConstraints { make in
-            make.top.equalTo(snp.top).offset(150)
-            make.left.equalTo(snp.left).offset(10)
-            make.right.equalTo(snp.right).offset(-10)
-            make.height.equalTo(170)
-        }
-        addSubview(lblTitle)
-        lblTitle.snp.makeConstraints { make in
-            make.top.equalTo(imageView.snp.bottom).offset(15)
-            make.left.equalTo(snp.left).offset(10)
-            make.right.equalTo(snp.right).offset(-10)
-            make.height.equalTo(25)
-        }
-        addSubview(lblContent)
-        lblContent.snp.makeConstraints { make in
-            make.top.equalTo(lblTitle.snp.bottom).offset(15)
-            make.left.equalTo(snp.left).offset(10)
-            make.right.equalTo(snp.right).offset(-10)
-            make.height.equalTo(snp.height).dividedBy(4)
-        }
-        
+        addSubview(topContainer)
+        topContainer.translatesAutoresizingMaskIntoConstraints = false
+        topContainer.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        topContainer.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        topContainer.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        topContainer.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.5).isActive = true
+
+        topContainer.addSubview(imageView)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.centerXAnchor.constraint(equalTo: topContainer.centerXAnchor).isActive = true
+        imageView.centerYAnchor.constraint(equalTo: topContainer.centerYAnchor).isActive = true
+        imageView.heightAnchor.constraint(equalTo: topContainer.heightAnchor, multiplier: 0.75).isActive = true
+
+        addSubview(textView)
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        textView.topAnchor.constraint(equalTo: topContainer.bottomAnchor).isActive = true
+        textView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10).isActive = true
+        textView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10).isActive = true
+        textView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 10).isActive = true
     }
 
 }
