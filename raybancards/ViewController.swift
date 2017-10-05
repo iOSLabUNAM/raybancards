@@ -42,7 +42,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red:0.95, green:0.81, blue:0.33, alpha:1.00)
-        setupSubviews()
+        setupLayout()
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,14 +50,16 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    func setupSubviews() {
+    func setupLayout() {
         view.addSubview(container)
-        container.translatesAutoresizingMaskIntoConstraints = false
-        container.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-        container.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        container.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-        container.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
         container.register(ImageDescriptionCard.self, forCellWithReuseIdentifier: cellId)
+        container.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            container.topAnchor.constraint(equalTo: self.view.topAnchor),
+            container.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            container.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            container.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+        ])
     }
 
 }

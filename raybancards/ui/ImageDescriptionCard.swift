@@ -40,34 +40,39 @@ class ImageDescriptionCard: UICollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupSubviews()
+        setupLayout()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        setupSubviews()
+        setupLayout()
     }
     
-    func setupSubviews() {
+    func setupLayout() {
         addSubview(topContainer)
         topContainer.translatesAutoresizingMaskIntoConstraints = false
-        topContainer.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        topContainer.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        topContainer.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        topContainer.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.5).isActive = true
-
+        NSLayoutConstraint.activate([
+            topContainer.topAnchor.constraint(equalTo: topAnchor),
+            topContainer.leadingAnchor.constraint(equalTo: leadingAnchor),
+            topContainer.trailingAnchor.constraint(equalTo: trailingAnchor),
+            topContainer.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5)
+        ])
         topContainer.addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.centerXAnchor.constraint(equalTo: topContainer.centerXAnchor).isActive = true
-        imageView.centerYAnchor.constraint(equalTo: topContainer.centerYAnchor).isActive = true
-        imageView.heightAnchor.constraint(equalTo: topContainer.heightAnchor, multiplier: 0.75).isActive = true
+        NSLayoutConstraint.activate([
+            imageView.centerXAnchor.constraint(equalTo: topContainer.centerXAnchor),
+            imageView.centerYAnchor.constraint(equalTo: topContainer.centerYAnchor),
+            imageView.heightAnchor.constraint(equalTo: topContainer.heightAnchor, multiplier: 0.75)
+        ])
 
         addSubview(textView)
         textView.translatesAutoresizingMaskIntoConstraints = false
-        textView.topAnchor.constraint(equalTo: topContainer.bottomAnchor).isActive = true
-        textView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10).isActive = true
-        textView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10).isActive = true
-        textView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 10).isActive = true
+        NSLayoutConstraint.activate([
+            textView.topAnchor.constraint(equalTo: topContainer.bottomAnchor),
+            textView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            textView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            textView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 10)
+        ])
     }
 
     func updateTextView() {
