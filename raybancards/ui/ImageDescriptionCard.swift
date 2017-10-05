@@ -11,12 +11,14 @@ import UIKit
 class ImageDescriptionCard: UICollectionViewCell {
     let topContainer : UIView = {
         let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     let imageView : UIImageView = {
         let iv = UIImageView()
         iv.image = UIImage.init(named: "white-closed")
         iv.contentMode = .scaleAspectFit
+        iv.translatesAutoresizingMaskIntoConstraints = false
         return iv
     }()
     
@@ -25,6 +27,7 @@ class ImageDescriptionCard: UICollectionViewCell {
         lbl.isEditable = false
         lbl.isScrollEnabled = false
         lbl.backgroundColor = .clear
+        lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
     }()
     
@@ -50,7 +53,6 @@ class ImageDescriptionCard: UICollectionViewCell {
     
     func setupLayout() {
         addSubview(topContainer)
-        topContainer.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             topContainer.topAnchor.constraint(equalTo: topAnchor),
             topContainer.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -58,7 +60,6 @@ class ImageDescriptionCard: UICollectionViewCell {
             topContainer.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5)
         ])
         topContainer.addSubview(imageView)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             imageView.centerXAnchor.constraint(equalTo: topContainer.centerXAnchor),
             imageView.centerYAnchor.constraint(equalTo: topContainer.centerYAnchor),
@@ -66,7 +67,6 @@ class ImageDescriptionCard: UICollectionViewCell {
         ])
 
         addSubview(textView)
-        textView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             textView.topAnchor.constraint(equalTo: topContainer.bottomAnchor),
             textView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),

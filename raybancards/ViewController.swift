@@ -9,6 +9,26 @@
 import UIKit
 
 class ViewController: UIViewController {
+    private let prevButton : UIButton = {
+        let btn = UIButton(type: .system)
+        btn.setTitle("PREV", for: .normal)
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        btn.isEnabled = false
+        return btn
+    }()
+    private let nextButton : UIButton = {
+        let btn = UIButton(type: .system)
+        btn.setTitle("NEXT", for: .normal)
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        btn.isEnabled = true
+        return btn
+    }()
+    private let pageControll :UIPageControl = {
+        let pg = UIPageControl()
+        pg.currentPage = 0
+        pg.numberOfPages = 4
+        return pg
+    }()
 
     lazy var container: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -18,6 +38,7 @@ class ViewController: UIViewController {
         cv.dataSource = self
         cv.delegate = self
         cv.isPagingEnabled = true
+        cv.translatesAutoresizingMaskIntoConstraints = false
         return cv
     }()
     
@@ -42,6 +63,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red:0.95, green:0.81, blue:0.33, alpha:1.00)
+        container.register(ImageDescriptionCard.self, forCellWithReuseIdentifier: cellId)
+
         setupLayout()
     }
 
@@ -52,13 +75,22 @@ class ViewController: UIViewController {
 
     func setupLayout() {
         view.addSubview(container)
-        container.register(ImageDescriptionCard.self, forCellWithReuseIdentifier: cellId)
-        container.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            container.topAnchor.constraint(equalTo: self.view.topAnchor),
-            container.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            container.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            container.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+            container.topAnchor.constraint(equalTo: view.topAnchor),
+            container.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            container.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            container.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        
+        let navControllerView = UIStackView(arrangedSubviews: [prevButton, pageControll, nextButton])
+        navControllerView.translatesAutoresizingMaskIntoConstraints = false
+        navControllerView.distribution = .fillEqually
+        view.addSubview(navControllerView)
+        NSLayoutConstraint.activate([
+            navControllerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            navControllerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            navControllerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            navControllerView.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
 
