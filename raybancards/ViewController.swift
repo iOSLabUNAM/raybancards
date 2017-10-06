@@ -14,6 +14,7 @@ class ViewController: UIViewController {
         btn.setTitle("PREV", for: .normal)
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         btn.isEnabled = false
+        btn.addTarget(self, action: #selector(prevPage), for: .touchUpInside)
         return btn
     }()
     private let nextButton : UIButton = {
@@ -21,12 +22,13 @@ class ViewController: UIViewController {
         btn.setTitle("NEXT", for: .normal)
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         btn.isEnabled = true
+        btn.addTarget(self, action: #selector(nextPage), for: .touchUpInside)
         return btn
     }()
-    private let pageControll :UIPageControl = {
+    private lazy var pageControl :UIPageControl = {
         let pg = UIPageControl()
         pg.currentPage = 0
-        pg.numberOfPages = 4
+        pg.numberOfPages = items.count
         return pg
     }()
 
@@ -64,7 +66,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red:0.95, green:0.81, blue:0.33, alpha:1.00)
         container.register(ImageDescriptionCard.self, forCellWithReuseIdentifier: cellId)
-
         setupLayout()
     }
 
@@ -82,7 +83,7 @@ class ViewController: UIViewController {
             container.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
-        let navControllerView = UIStackView(arrangedSubviews: [prevButton, pageControll, nextButton])
+        let navControllerView = UIStackView(arrangedSubviews: [prevButton, pageControl, nextButton])
         navControllerView.translatesAutoresizingMaskIntoConstraints = false
         navControllerView.distribution = .fillEqually
         view.addSubview(navControllerView)
@@ -92,6 +93,26 @@ class ViewController: UIViewController {
             navControllerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             navControllerView.heightAnchor.constraint(equalToConstant: 50)
         ])
+    }
+
+    @objc func prevPage() {
+        pageControl.currentPage -= 1
+        let index = IndexPath(item: pageControl.currentPage, section: 0)
+        container.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
+        nextButton.isEnabled = true
+        if pageControl.currentPage == 0 {
+            prevButton.isEnabled = false
+        }
+    }
+    
+    @objc func nextPage() {
+        pageControl.currentPage += 1
+        let index = IndexPath(item: pageControl.currentPage, section: 0)
+        container.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
+        prevButton.isEnabled = true
+        if pageControl.currentPage + 1 == items.count {
+            nextButton.isEnabled = false
+        }
     }
 
 }

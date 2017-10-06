@@ -69,9 +69,9 @@ class ImageDescriptionCard: UICollectionViewCell {
         addSubview(textView)
         NSLayoutConstraint.activate([
             textView.topAnchor.constraint(equalTo: topContainer.bottomAnchor),
-            textView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            textView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-            textView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 10)
+            textView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            textView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
+            textView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -50)
         ])
     }
 
