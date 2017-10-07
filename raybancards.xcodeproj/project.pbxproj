@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		209F51B3F72510AE8C237C3C /* Pods_raybancards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BCC6429BC0C93A7BF3D6784 /* Pods_raybancards.framework */; };
 		300EA3991F7CA48C007A5856 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300EA3981F7CA48C007A5856 /* AppDelegate.swift */; };
 		300EA39B1F7CA48C007A5856 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300EA39A1F7CA48C007A5856 /* ViewController.swift */; };
 		300EA39E1F7CA48C007A5856 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 300EA39C1F7CA48C007A5856 /* Main.storyboard */; };
@@ -14,7 +15,6 @@
 		300EA3A31F7CA48C007A5856 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 300EA3A11F7CA48C007A5856 /* LaunchScreen.storyboard */; };
 		305C024F1F7E04E80076C982 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305C024E1F7E04E80076C982 /* Item.swift */; };
 		30D2B11F1F7CA86F001F66B1 /* ImageDescriptionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D2B11E1F7CA86F001F66B1 /* ImageDescriptionCard.swift */; };
-		5407670DF4643CAD2DD4B096 /* Pods_raybancards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 849670BE13A2D259027FF6EC /* Pods_raybancards.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,9 +27,9 @@
 		300EA3A41F7CA48C007A5856 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		305C024E1F7E04E80076C982 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		30D2B11E1F7CA86F001F66B1 /* ImageDescriptionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDescriptionCard.swift; sourceTree = "<group>"; };
-		849670BE13A2D259027FF6EC /* Pods_raybancards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_raybancards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F037D7B00040FF6CFF1012D2 /* Pods-raybancards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-raybancards.release.xcconfig"; path = "Pods/Target Support Files/Pods-raybancards/Pods-raybancards.release.xcconfig"; sourceTree = "<group>"; };
-		F463F7D48294419FE7395BC8 /* Pods-raybancards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-raybancards.debug.xcconfig"; path = "Pods/Target Support Files/Pods-raybancards/Pods-raybancards.debug.xcconfig"; sourceTree = "<group>"; };
+		42F378FA22F57852AD259DC8 /* Pods-raybancards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-raybancards.release.xcconfig"; path = "Pods/Target Support Files/Pods-raybancards/Pods-raybancards.release.xcconfig"; sourceTree = "<group>"; };
+		846127AB40AFB0063A02CBED /* Pods-raybancards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-raybancards.debug.xcconfig"; path = "Pods/Target Support Files/Pods-raybancards/Pods-raybancards.debug.xcconfig"; sourceTree = "<group>"; };
+		8BCC6429BC0C93A7BF3D6784 /* Pods_raybancards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_raybancards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,28 +37,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5407670DF4643CAD2DD4B096 /* Pods_raybancards.framework in Frameworks */,
+				209F51B3F72510AE8C237C3C /* Pods_raybancards.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		02E977C8B4F0FE20E68D1EF7 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				849670BE13A2D259027FF6EC /* Pods_raybancards.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		300EA38C1F7CA48C007A5856 = {
 			isa = PBXGroup;
 			children = (
 				300EA3971F7CA48C007A5856 /* raybancards */,
 				300EA3961F7CA48C007A5856 /* Products */,
-				BB163BA3259DC770C3333443 /* Pods */,
-				02E977C8B4F0FE20E68D1EF7 /* Frameworks */,
+				F334A127BFF0B49E27B09FCC /* Pods */,
+				6FB72CBC6C11BDA9F29C0C3C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,11 +93,19 @@
 			path = ui;
 			sourceTree = "<group>";
 		};
-		BB163BA3259DC770C3333443 /* Pods */ = {
+		6FB72CBC6C11BDA9F29C0C3C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F463F7D48294419FE7395BC8 /* Pods-raybancards.debug.xcconfig */,
-				F037D7B00040FF6CFF1012D2 /* Pods-raybancards.release.xcconfig */,
+				8BCC6429BC0C93A7BF3D6784 /* Pods_raybancards.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F334A127BFF0B49E27B09FCC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				846127AB40AFB0063A02CBED /* Pods-raybancards.debug.xcconfig */,
+				42F378FA22F57852AD259DC8 /* Pods-raybancards.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -117,12 +117,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 300EA3A71F7CA48C007A5856 /* Build configuration list for PBXNativeTarget "raybancards" */;
 			buildPhases = (
-				B4FC9C7DE80DB5553839B236 /* [CP] Check Pods Manifest.lock */,
+				FC47F18BB3FEB7630A3D9F24 /* [CP] Check Pods Manifest.lock */,
 				300EA3911F7CA48C007A5856 /* Sources */,
 				300EA3921F7CA48C007A5856 /* Frameworks */,
 				300EA3931F7CA48C007A5856 /* Resources */,
-				AA15EDF2C88AEB0D9EFC88FC /* [CP] Embed Pods Frameworks */,
-				3EFE768D8C177B1590609090 /* [CP] Copy Pods Resources */,
+				A337195E1E809D40850B3A41 /* [CP] Embed Pods Frameworks */,
+				816F02304FB360CA9BF6042E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -181,7 +181,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3EFE768D8C177B1590609090 /* [CP] Copy Pods Resources */ = {
+		816F02304FB360CA9BF6042E /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -196,25 +196,22 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-raybancards/Pods-raybancards-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AA15EDF2C88AEB0D9EFC88FC /* [CP] Embed Pods Frameworks */ = {
+		A337195E1E809D40850B3A41 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-raybancards/Pods-raybancards-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-raybancards/Pods-raybancards-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B4FC9C7DE80DB5553839B236 /* [CP] Check Pods Manifest.lock */ = {
+		FC47F18BB3FEB7630A3D9F24 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -377,7 +374,7 @@
 		};
 		300EA3A81F7CA48C007A5856 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F463F7D48294419FE7395BC8 /* Pods-raybancards.debug.xcconfig */;
+			baseConfigurationReference = 846127AB40AFB0063A02CBED /* Pods-raybancards.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -395,7 +392,7 @@
 		};
 		300EA3A91F7CA48C007A5856 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F037D7B00040FF6CFF1012D2 /* Pods-raybancards.release.xcconfig */;
+			baseConfigurationReference = 42F378FA22F57852AD259DC8 /* Pods-raybancards.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
