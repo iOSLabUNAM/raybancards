@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImageDescriptionCard: UICollectionViewCell {
+class ItemCollectionViewCell: UICollectionViewCell {
     let topContainer : UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -31,14 +31,12 @@ class ImageDescriptionCard: UICollectionViewCell {
         return lbl
     }()
     
-    var image : UIImage? {
-        didSet { self.imageView.image = self.image }
-    }
-    var title : String? {
-        didSet { updateTextView() }
-    }
-    var content : String? {
-        didSet { updateTextView() }
+    var item : Item? {
+        didSet {
+            guard let unwrapedItem = item else { return }
+            self.imageView.image = unwrapedItem.image
+            updateTextView()
+        }
     }
 
     override init(frame: CGRect) {
@@ -52,6 +50,7 @@ class ImageDescriptionCard: UICollectionViewCell {
     }
     
     func setupLayout() {
+        self.backgroundColor = UIColor(named: "yellow")!
         addSubview(topContainer)
         NSLayoutConstraint.activate([
             topContainer.topAnchor.constraint(equalTo: topAnchor),
@@ -76,8 +75,8 @@ class ImageDescriptionCard: UICollectionViewCell {
     }
 
     func updateTextView() {
-        let attributedText = NSMutableAttributedString(string: (title ?? ""), attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 24)])
-        attributedText.append(NSAttributedString(string: "\n\n\n\(content ?? "")", attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 13)]))
+        let attributedText = NSMutableAttributedString(string: (item?.name ?? ""), attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 24)])
+        attributedText.append(NSAttributedString(string: "\n\n\n\(item?.description ?? "")", attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 13)]))
         textView.attributedText = attributedText
         textView.textAlignment = .center
     }

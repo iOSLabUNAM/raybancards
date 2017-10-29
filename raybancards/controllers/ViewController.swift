@@ -65,7 +65,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red:0.95, green:0.81, blue:0.33, alpha:1.00)
-        container.register(ImageDescriptionCard.self, forCellWithReuseIdentifier: cellId)
+        container.register(ItemCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         setupLayout()
     }
 
@@ -123,12 +123,8 @@ extension ViewController : UICollectionViewDataSource, UICollectionViewDelegate,
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ImageDescriptionCard
-        let item = items[indexPath.row]
-        cell.title = item.name
-        cell.content = item.description
-        cell.image = item.image
-        cell.backgroundColor = UIColor(named: "yellow")
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ItemCollectionViewCell
+        cell.item = items[indexPath.row]
         return cell
     }
     
