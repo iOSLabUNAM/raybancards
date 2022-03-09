@@ -75,8 +75,8 @@ class ItemCollectionViewCell: UICollectionViewCell {
     }
 
     func updateTextView() {
-        let attributedText = NSMutableAttributedString(string: (item?.name ?? ""), attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 24)])
-        attributedText.append(NSAttributedString(string: "\n\n\n\(item?.description ?? "")", attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 13)]))
+        let attributedText = NSMutableAttributedString(string: (item?.name ?? ""), attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 24)])
+        attributedText.append(NSAttributedString(string: "\n\n\n\(item?.description ?? "")", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13)]))
         textView.attributedText = attributedText
         textView.textAlignment = .center
     }
