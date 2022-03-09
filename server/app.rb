@@ -11,7 +11,6 @@ get "/" do
 end
 
 __END__
-
 @@ layout
 <!DOCTYPE html>
 <html>
